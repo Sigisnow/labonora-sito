@@ -258,7 +258,8 @@ page("prenota.html", "Prenota · La Bonora", "Prenota un tavolo a La Bonora, Lar
 <label class="f"><span>Nome</span><input id="b-name" type="text" autocomplete="name" placeholder="Il tuo nome"><small class="err" id="b-name-err" hidden></small></label>
 <label class="f"><span>Cellulare</span><input id="b-phone" type="tel" autocomplete="tel" placeholder="333 000 0000"><small class="err" id="b-phone-err" hidden></small></label>
 <label class="f"><span>Email (per la conferma)</span><input id="b-email" type="email" autocomplete="email" placeholder="nome@email.it"><small class="err" id="b-email-err" hidden></small></label>
-<label class="f"><span>Compleanno, facoltativo</span><input id="b-bday" type="text" placeholder="gg/mm" inputmode="numeric" maxlength="5"></label>
+<label class="f"><span>Compleanno, facoltativo</span><input id="b-bday" type="text" placeholder="gg/mm" inputmode="numeric" maxlength="5"><small class="err" id="b-bday-err" hidden></small></label>
+<label class="hp" aria-hidden="true">Non compilare<input id="b-hp" type="text" tabindex="-1" autocomplete="off"></label>
 <label class="f full"><span>Note</span><textarea id="b-notes" placeholder="Occasione, intolleranze, seggiolone…"></textarea></label>
 </div></fieldset>
 <div class="checks">
@@ -267,12 +268,13 @@ page("prenota.html", "Prenota · La Bonora", "Prenota un tavolo a La Bonora, Lar
 <label><input type="checkbox" id="b-mkt"><span>Voglio ricevere gli auguri di compleanno e poche novità l'anno via email o WhatsApp. (facoltativo)</span></label>
 </div>
 <div class="submit-row"><button class="btn fill" type="submit">Invia la richiesta</button><p>Per gruppi oltre 10 persone o per stasera è più veloce WhatsApp.</p></div>
+<p class="err send-err" id="send-err" role="alert" hidden></p>
 </form>
 <div class="done" id="done" hidden tabindex="-1">
 <p class="kick wine">Richiesta ricevuta</p>
 <h3>Grazie, ci sentiamo a breve</h3>
 <p class="s" style="font-size:21px" id="done-text"></p>
-<p style="font-size:14px;color:var(--muted)">Questa è una demo: la richiesta non è stata inviata. Nel sito definitivo arriva al locale su Telegram con i tasti Accetta e Rifiuta, e a te parte l'email di conferma.</p>
+<p style="font-size:14px;color:var(--muted)" id="done-note"></p>
 <div><button class="btn" type="button" id="done-again">Nuova prenotazione</button></div>
 </div>
 </div>
@@ -310,3 +312,22 @@ page("privacy.html", "Privacy e cookie · La Bonora", "Informativa privacy e coo
 <p class="draft" style="margin-top:24px;max-width:70ch">Da completare prima della messa online: l'informativa va aggiornata con i nuovi trattamenti (prenotazioni, anagrafica clienti, auguri e comunicazioni). Fino ad allora vale quella del sito attuale: <a href="https://www.labonora.it/trattamento-dei-dati-cookie-policy/">labonora.it/trattamento-dei-dati-cookie-policy</a>.</p>
 <p class="body" style="margin-top:24px">Titolare del trattamento: La Bonora S.r.l., Largo Appio Claudio 344, 00174 Roma, P.IVA 14928281006, info@labonora.it.</p>
 </div>''')
+
+# ---------------- STAFF (non collegata dal sito) ----------------
+PAGES["staff.html"] = (head("Prenotazioni · Staff La Bonora", "Area riservata allo staff.", "staff.html"), '''<main class="staff">
+<header class="st-top"><div class="wrap st-bar"><span class="brand">La Bonora</span><span class="sub">prenotazioni</span><button type="button" id="st-logout" hidden>Esci</button></div></header>
+<section class="wrap st-login" id="st-login" hidden>
+<h1>Area staff</h1><p>Inserisci il codice staff per vedere le prenotazioni.</p>
+<form id="st-login-form"><input type="password" id="st-pin" inputmode="numeric" autocomplete="current-password" aria-label="Codice staff" placeholder="Codice">
+<label class="rem"><input type="checkbox" id="st-remember" checked> Ricorda su questo dispositivo</label>
+<button class="btn fill" type="submit">Entra</button><p class="err" id="st-pin-err" hidden>Codice non valido.</p></form>
+</section>
+<section class="wrap" id="st-app" hidden>
+<div class="st-nav"><h1 id="st-day"></h1><button type="button" id="st-prev" aria-label="Serata precedente">←</button><input type="date" id="st-date" aria-label="Scegli la data"><button type="button" id="st-next" aria-label="Serata successiva">→</button><button type="button" id="st-today">Stasera</button></div>
+<div class="st-sum" id="st-sum"></div>
+<p class="st-later" id="st-later"></p>
+<div id="st-filter" role="group" aria-label="Filtra"><button type="button" data-f="tutte">Tutte</button><button type="button" data-f="pending">In attesa</button><button type="button" data-f="ok">Accettate</button><button type="button" data-f="no">Rifiutate</button></div>
+<ol id="st-list"></ol>
+<p class="st-upd" id="st-upd"></p>
+</section>
+</main>''')

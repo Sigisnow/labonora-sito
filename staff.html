@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prenotazioni · Staff La Bonora</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Area riservata allo staff.">
+<link rel="canonical" href="https://www.labonora.it/staff.html">
+<meta property="og:title" content="Prenotazioni · Staff La Bonora"><meta property="og:description" content="Area riservata allo staff."><meta property="og:type" content="website"><meta property="og:locale" content="it_IT">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<main class="staff">
+<header class="st-top"><div class="wrap st-bar"><span class="brand">La Bonora</span><span class="sub">prenotazioni</span><button type="button" id="st-logout" hidden>Esci</button></div></header>
+<section class="wrap st-login" id="st-login" hidden>
+<h1>Area staff</h1><p>Inserisci il codice staff per vedere le prenotazioni.</p>
+<form id="st-login-form"><input type="password" id="st-pin" inputmode="numeric" autocomplete="current-password" aria-label="Codice staff" placeholder="Codice">
+<label class="rem"><input type="checkbox" id="st-remember" checked> Ricorda su questo dispositivo</label>
+<button class="btn fill" type="submit">Entra</button><p class="err" id="st-pin-err" hidden>Codice non valido.</p></form>
+</section>
+<section class="wrap" id="st-app" hidden>
+<div class="st-nav"><h1 id="st-day"></h1><button type="button" id="st-prev" aria-label="Serata precedente">←</button><input type="date" id="st-date" aria-label="Scegli la data"><button type="button" id="st-next" aria-label="Serata successiva">→</button><button type="button" id="st-today">Stasera</button></div>
+<div class="st-sum" id="st-sum"></div>
+<p class="st-later" id="st-later"></p>
+<div id="st-filter" role="group" aria-label="Filtra"><button type="button" data-f="tutte">Tutte</button><button type="button" data-f="pending">In attesa</button><button type="button" data-f="ok">Accettate</button><button type="button" data-f="no">Rifiutate</button></div>
+<ol id="st-list"></ol>
+<p class="st-upd" id="st-upd"></p>
+</section>
+</main>
+<script>window.BONORA_API="";</script><script src="assets/staff.js"></script>
+</body>
+</html>

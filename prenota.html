@@ -47,7 +47,8 @@
 <label class="f"><span>Nome</span><input id="b-name" type="text" autocomplete="name" placeholder="Il tuo nome"><small class="err" id="b-name-err" hidden></small></label>
 <label class="f"><span>Cellulare</span><input id="b-phone" type="tel" autocomplete="tel" placeholder="333 000 0000"><small class="err" id="b-phone-err" hidden></small></label>
 <label class="f"><span>Email (per la conferma)</span><input id="b-email" type="email" autocomplete="email" placeholder="nome@email.it"><small class="err" id="b-email-err" hidden></small></label>
-<label class="f"><span>Compleanno, facoltativo</span><input id="b-bday" type="text" placeholder="gg/mm" inputmode="numeric" maxlength="5"></label>
+<label class="f"><span>Compleanno, facoltativo</span><input id="b-bday" type="text" placeholder="gg/mm" inputmode="numeric" maxlength="5"><small class="err" id="b-bday-err" hidden></small></label>
+<label class="hp" aria-hidden="true">Non compilare<input id="b-hp" type="text" tabindex="-1" autocomplete="off"></label>
 <label class="f full"><span>Note</span><textarea id="b-notes" placeholder="Occasione, intolleranze, seggiolone…"></textarea></label>
 </div></fieldset>
 <div class="checks">
@@ -56,12 +57,13 @@
 <label><input type="checkbox" id="b-mkt"><span>Voglio ricevere gli auguri di compleanno e poche novità l'anno via email o WhatsApp. (facoltativo)</span></label>
 </div>
 <div class="submit-row"><button class="btn fill" type="submit">Invia la richiesta</button><p>Per gruppi oltre 10 persone o per stasera è più veloce WhatsApp.</p></div>
+<p class="err send-err" id="send-err" role="alert" hidden></p>
 </form>
 <div class="done" id="done" hidden tabindex="-1">
 <p class="kick wine">Richiesta ricevuta</p>
 <h3>Grazie, ci sentiamo a breve</h3>
 <p class="s" style="font-size:21px" id="done-text"></p>
-<p style="font-size:14px;color:var(--muted)">Questa è una demo: la richiesta non è stata inviata. Nel sito definitivo arriva al locale su Telegram con i tasti Accetta e Rifiuta, e a te parte l'email di conferma.</p>
+<p style="font-size:14px;color:var(--muted)" id="done-note"></p>
 <div><button class="btn" type="button" id="done-again">Nuova prenotazione</button></div>
 </div>
 </div>
@@ -89,6 +91,6 @@
 <div class="legal"><span>La Bonora S.r.l. · Largo Appio Claudio 344 · 00174 Roma · P.IVA e C.F. 14928281006 · REA RM-1555959</span><span><a href="privacy.html">Privacy e cookie</a> · La società ha ricevuto nel 2020 aiuti di stato pubblicati sul RNA, sezione trasparenza.</span></div>
 </div></footer>
 <nav class="actionbar" aria-label="Azioni rapide"><a class="fill" href="prenota.html">Prenota</a><a href="https://wa.me/393495069530">WhatsApp</a><a href="tel:+390688376508">Chiama</a></nav>
-<script src="assets/menu-data.js"></script><script src="assets/site.js"></script>
+<script>window.BONORA_API="";</script><script src="assets/menu-data.js"></script><script src="assets/site.js"></script>
 </body>
 </html>

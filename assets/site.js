@@ -145,6 +145,7 @@
         ["b-phone", /^[+\d][\d\s.-]{7,}$/.test(v("b-phone")), "Serve un cellulare valido per confermarti."],
         ["b-email", !v("b-email") || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("b-email")), "L'email non sembra corretta."],
         ["b-people", +v("b-people") >= 1 && +v("b-people") <= 40, "Indica quante persone (da 1 a 40)."],
+        ["b-bday", !v("b-bday") || /^(0?[1-9]|[12]\d|3[01])[\/.-](0?[1-9]|1[0-2])$/.test(v("b-bday")), "Scrivilo come giorno/mese, per esempio 14/03."],
         ["b-privacy", $("#b-privacy").checked, "Serve il consenso per gestire la prenotazione."]
       ];
       checks.forEach(function (c) { setErr(c[0], c[1] ? "" : c[2]); if (!c[1]) ok = false; });
@@ -155,8 +156,34 @@
       var nd = { dentro: "dentro", fuori: "fuori nel patio", indifferente: "dentro o fuori" };
       var d = day && day.value ? new Date(day.value + "T12:00:00") : null;
       var when = d ? d.toLocaleDateString("it-IT", { weekday: "long", day: "numeric", month: "long" }) : "";
-      $("#done-text").textContent = v("b-name") + ", " + v("b-people") + " persone, " + when + " alle " + (time ? time.value : "") + ": " + nm[mom] + ", " + nd[dove] + ".";
-      form.hidden = true; $("#done").hidden = false; $("#done").focus();
+      var summary = v("b-name") + ", " + v("b-people") + " persone, " + when + " alle " + (time ? time.value : "") + ": " + nm[mom] + ", " + nd[dove] + ".";
+      var hasMail = !!v("b-email");
+      var finish = function (live) {
+        $("#done-text").textContent = summary;
+        $("#done-note").textContent = live
+          ? (hasMail ? "Ti arriva l'email di conferma appena il locale accetta. Per qualsiasi cosa: WhatsApp 349 506 9530." : "Ti confermiamo con un messaggio al cellulare che hai indicato. Per qualsiasi cosa: WhatsApp 349 506 9530.")
+          : "Questa è una demo: la richiesta non è stata inviata. Nel sito definitivo arriva al locale su Telegram con i tasti Accetta e Rifiuta, e a te parte l'email di conferma.";
+        form.hidden = true; $("#done").hidden = false; $("#done").focus();
+      };
+      var API = window.BONORA_API;
+      if (!API) { finish(false); return; }
+      var send = form.querySelector("button[type=submit]"), label = send.textContent, fail = $("#send-err");
+      send.disabled = true; send.textContent = "Invio in corso…"; if (fail) fail.hidden = true;
+      var payload = {
+        action: "book", nome: v("b-name"), telefono: v("b-phone"), email: v("b-email"), persone: +v("b-people"),
+        data: day ? day.value : "", ora: time ? time.value : "", momento: mom, dove: dove, note: v("b-notes"),
+        compleanno: v("b-bday"), privacy: $("#b-privacy").checked, mkt: !!($("#b-mkt") && $("#b-mkt").checked), hp: v("b-hp")
+      };
+      fetch(API, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res && res.ok) { form.reset(); if (day) day.value = iso(today); finish(true); }
+          else throw new Error((res && res.error) || "errore");
+        })
+        .catch(function (err) {
+          if (fail) { fail.innerHTML = "Non siamo riusciti a inviare la richiesta" + (err && err.message && err.message !== "errore" && err.message.indexOf("fetch") < 0 ? " (" + err.message + ")" : "") + ". Riprova, oppure scrivici su <a href=\"https://wa.me/393495069530\">WhatsApp</a>."; fail.hidden = false; }
+        })
+        .then(function () { send.disabled = false; send.textContent = label; });
     });
     var again = $("#done-again");
     if (again) again.addEventListener("click", function () { $("#done").hidden = true; form.hidden = false; });
