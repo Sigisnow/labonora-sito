@@ -9,7 +9,7 @@ SRC, DIST, ART = (os.path.join(ROOT, d) for d in ("src", "dist", "artifact"))
 SITE = "https://www.labonora.it"
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600;700&display=swap">'
 # indirizzo dell'App web Google (finisce con /exec). Vuoto = modulo in modalità demo.
-API_URL = os.environ.get("BONORA_API_TEST", "")
+API_URL = os.environ.get("BONORA_API_TEST", "https://script.google.com/macros/s/AKfycbwBWhMcpWKMKW-WkmyquVJ0OcdDrXVG7q4vhqIcb7bNOMID-pIekJxQ5zXmHfZaMXQc/exec")
 WA, WA_TXT, TEL, TEL_TXT = "https://wa.me/393495069530", "349 506 9530", "tel:+390688376508", "06 8837 6508"
 
 SCHEMA = {"@context": "https://schema.org", "@type": "BarOrPub", "name": "La Bonora – Laboratorio di Cibi e Alcolici",
