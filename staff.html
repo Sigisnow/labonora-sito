@@ -22,7 +22,8 @@
 <button class="btn fill" type="submit">Entra</button><p class="err" id="st-pin-err" hidden>Codice non valido.</p></form>
 </section>
 <section class="wrap" id="st-app" hidden>
-<div class="st-nav"><h1 id="st-day"></h1><button type="button" id="st-prev" aria-label="Serata precedente">←</button><input type="date" id="st-date" aria-label="Scegli la data"><button type="button" id="st-next" aria-label="Serata successiva">→</button><button type="button" id="st-today">Stasera</button></div>
+<div id="st-views" class="st-views" role="group" aria-label="Cosa vuoi vedere"><button type="button" data-v="stasera">Stasera</button><button type="button" data-v="domani">Domani</button><button type="button" data-v="sett">Questa settimana</button><button type="button" data-v="prossima">Prossima settimana</button><button type="button" data-v="prossime">Tutte le prossime</button></div>
+<div class="st-nav"><h1 id="st-day"></h1><div class="st-step" id="st-step"><button type="button" id="st-prev">←</button><input type="date" id="st-date" aria-label="Scegli la data"><button type="button" id="st-next">→</button></div></div>
 <div class="st-sum" id="st-sum"></div>
 <p class="st-later" id="st-later"></p>
 <div id="st-filter" role="group" aria-label="Filtra"><button type="button" data-f="tutte">Tutte</button><button type="button" data-f="pending">In attesa</button><button type="button" data-f="ok">Accettate</button><button type="button" data-f="no">Rifiutate</button></div>

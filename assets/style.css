@@ -378,3 +378,18 @@ button[disabled]{opacity:.6;cursor:progress}
 .st-empty{padding:28px;border:1px dashed var(--muted);text-align:center;color:var(--muted)}
 .st-upd{margin-top:18px;font-size:13px;color:var(--muted)}
 @media (max-width:560px){.st-sum b{font-size:30px}.st-card{grid-template-columns:78px minmax(0,1fr)}.st-time{font-size:24px;padding-left:12px}.st-body{padding-left:8px}.st-sum div{padding:10px}}
+/* agenda */
+.st-views{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;padding-top:24px}
+.st-views button{font:700 15px/1.15 Inter,sans-serif;padding:16px 10px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;min-height:58px}
+.st-views button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.st-nav h1{flex:1 1 auto;margin:0}
+.st-step{display:flex;gap:8px}
+.st-step[hidden]{display:none}
+.st-cards{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+#st-list{display:grid;gap:10px}
+.st-dayblock{margin-top:22px}
+.st-dayblock h2{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;justify-content:space-between;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:0 0 10px}
+.st-dayblock h2 button{font-family:Anton,Impact,sans-serif;font-size:28px;text-transform:uppercase;background:none;border:0;padding:0;color:var(--ink);cursor:pointer;text-align:left}
+.st-dayblock h2 span{font:600 14px/1.3 Inter,sans-serif}
+.c-ok{color:var(--st-ok)}.c-pe{color:var(--st-pe)}
+@media (max-width:760px){.st-views{grid-template-columns:1fr 1fr}.st-views button:last-child{grid-column:1/-1}.st-nav{flex-direction:column;align-items:stretch}.st-step input{flex:1}}
