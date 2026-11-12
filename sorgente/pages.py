@@ -56,7 +56,7 @@ page("index.html", "La Bonora · Cocktail bar e cucina a Cinecittà",
      "La Bonora, Laboratorio di Cibi e Alcolici a Cinecittà, Tuscolana: aperitivo, cena e cocktail bar fino alle 02. Tre anime in un solo locale, a Largo Appio Claudio.",
      f'''
 <section class="entrance" aria-label="L'ingresso"><div class="wrap">
-<figure class="photo" style="aspect-ratio:auto"><picture><source media="(max-width:760px)" srcset="img/ingresso-giorno-s.jpg 800w, img/ingresso-giorno.jpg 1600w"><img src="img/ingresso-sera.jpg" srcset="img/ingresso-sera-s.jpg 800w, img/ingresso-sera.jpg 1600w" sizes="100vw" alt="L'ingresso de La Bonora, con l'insegna verde e le luci" style="aspect-ratio:16/8;object-position:center 45%" fetchpriority="high"></picture></figure>
+<figure class="photo hero-photo"><img src="img/ingresso-sera.jpg" srcset="img/ingresso-sera-s.jpg 800w, img/ingresso-sera.jpg 1600w" sizes="100vw" alt="L'insegna verde de La Bonora tra le luci" fetchpriority="high"></figure>
 <div class="entrance-text">
 <h1 class="d">Entra<br>alla Bonora</h1>
 <div class="side">
