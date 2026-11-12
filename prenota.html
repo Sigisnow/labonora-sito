@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prenota · La Bonora</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Prenota un tavolo a La Bonora, Largo Appio Claudio 344/348, Roma: aperitivo, cena o dopocena, dentro o nel patio. Ti confermiamo noi.">
+<link rel="canonical" href="https://www.labonora.it/prenota.html">
+<meta property="og:title" content="Prenota · La Bonora"><meta property="og:description" content="Prenota un tavolo a La Bonora, Largo Appio Claudio 344/348, Roma: aperitivo, cena o dopocena, dentro o nel patio. Ti confermiamo noi."><meta property="og:type" content="website"><meta property="og:locale" content="it_IT">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="logo" href="index.html">La Bonora<small>Laboratorio di Cibi e Alcolici</small></a>
+<button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav" aria-label="Principale"><span class="ask">Che ti va stasera?</span><div class="want"><a href="conviviale.html"><span>Un aperitivo</span><small>La Conviviale</small></a><a href="salotto.html"><span>Una cena</span><small>Il Salotto</small></a><a href="giungla.html"><span>Un drink</span><small>La Giungla</small></a></div><a href="menu.html">Menu</a><a href="locale.html">Il locale</a><a href="eventi.html">Eventi</a><a class="cta" href="prenota.html" aria-current="page">Prenota</a></nav>
+</div></header><main>
+<div class="wrap"><section style="padding-block:44px 24px;border-bottom:var(--rule);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 40px">
+<h1 class="d" style="font-size:clamp(72px,13vw,170px)">Prenota</h1><p class="lead" style="max-width:420px">Dicci cosa ti va e quando: ti confermiamo noi, di solito in pochi minuti.</p></section>
+<div class="book">
+<div style="min-width:0">
+<form id="booking" novalidate>
+<fieldset><legend class="kick wine">1 · Che ti va?</legend>
+<div class="choice">
+<label><input type="radio" name="momento" value="aperitivo"><span class="n">Aperitivo</span><span class="t">La Conviviale</span></label>
+<label><input type="radio" name="momento" value="cena"><span class="n">Cena</span><span class="t">Il Salotto</span></label>
+<label><input type="radio" name="momento" value="dopocena"><span class="n">Dopocena</span><span class="t">La Giungla</span></label>
+<label><input type="radio" name="momento" value="tutto" checked><span class="n">Un po' tutto</span><span class="t">la serata intera</span></label>
+</div></fieldset>
+<fieldset><legend class="kick wine">2 · Dove ti siedi?</legend>
+<div class="choice three">
+<label><input type="radio" name="dove" value="dentro" checked><span class="n">Dentro</span><span class="t">nel locale</span></label>
+<label><input type="radio" name="dove" value="fuori"><span class="n">Fuori</span><span class="t">nel patio sulla piazza</span></label>
+<label><input type="radio" name="dove" value="indifferente"><span class="n">Decidete voi</span><span class="t">va bene tutto</span></label>
+</div></fieldset>
+<fieldset><legend class="kick wine">3 · Quando e in quanti</legend>
+<div class="fields">
+<label class="f"><span>Giorno</span><input id="b-day" type="date" required></label>
+<label class="f"><span>Ora</span><select id="b-time"></select></label>
+<label class="f"><span>Persone</span><input id="b-people" type="number" min="1" max="40" value="2" inputmode="numeric"><small class="err" id="b-people-err" hidden></small></label>
+</div></fieldset>
+<fieldset><legend class="kick wine">4 · I tuoi dati</legend>
+<div class="fields two">
+<label class="f"><span>Nome</span><input id="b-name" type="text" autocomplete="name" placeholder="Il tuo nome"><small class="err" id="b-name-err" hidden></small></label>
+<label class="f"><span>Cellulare</span><input id="b-phone" type="tel" autocomplete="tel" placeholder="333 000 0000"><small class="err" id="b-phone-err" hidden></small></label>
+<label class="f"><span>Email (per la conferma)</span><input id="b-email" type="email" autocomplete="email" placeholder="nome@email.it"><small class="err" id="b-email-err" hidden></small></label>
+<label class="f"><span>Compleanno, facoltativo</span><input id="b-bday" type="text" placeholder="gg/mm" inputmode="numeric" maxlength="5"></label>
+<label class="f full"><span>Note</span><textarea id="b-notes" placeholder="Occasione, intolleranze, seggiolone…"></textarea></label>
+</div></fieldset>
+<div class="checks">
+<label><input type="checkbox" id="b-privacy"><span>Ho letto l'<a href="privacy.html">informativa privacy</a> e acconsento al trattamento dei dati per gestire la prenotazione. (obbligatorio)</span></label>
+<small class="err" id="b-privacy-err" hidden style="color:var(--wine)"></small>
+<label><input type="checkbox" id="b-mkt"><span>Voglio ricevere gli auguri di compleanno e poche novità l'anno via email o WhatsApp. (facoltativo)</span></label>
+</div>
+<div class="submit-row"><button class="btn fill" type="submit">Invia la richiesta</button><p>Per gruppi oltre 10 persone o per stasera è più veloce WhatsApp.</p></div>
+</form>
+<div class="done" id="done" hidden tabindex="-1">
+<p class="kick wine">Richiesta ricevuta</p>
+<h3>Grazie, ci sentiamo a breve</h3>
+<p class="s" style="font-size:21px" id="done-text"></p>
+<p style="font-size:14px;color:var(--muted)">Questa è una demo: la richiesta non è stata inviata. Nel sito definitivo arriva al locale su Telegram con i tasti Accetta e Rifiuta, e a te parte l'email di conferma.</p>
+<div><button class="btn" type="button" id="done-again">Nuova prenotazione</button></div>
+</div>
+</div>
+<aside aria-label="Contatti">
+<p class="kick wine">Per stasera</p>
+<h2 class="d" style="font-size:44px;margin-top:6px">Più veloce</h2>
+<div class="quick"><a class="ink" href="https://wa.me/393495069530"><span>WhatsApp</span><span>349 506 9530 →</span></a><a href="tel:+390688376508"><span>Telefono</span><span>06 8837 6508 →</span></a></div>
+<div style="border-top:var(--rule)">
+<div class="contact"><p class="kick">Indirizzo</p><p class="v">Largo Appio Claudio 344/348, 00174 Roma</p></div>
+<div class="contact"><p class="kick">Orari</p><p class="v">Ogni sera, 18:00 – 02:00</p></div>
+<div class="contact"><p class="kick">Email</p><p class="v"><a href="mailto:info@labonora.it">info@labonora.it</a></p></div>
+<div class="contact"><p class="kick">Parcheggio</p><p class="v">In zona ci sono parcheggi coperti convenzionati.</p></div>
+</div>
+<p style="margin-top:28px"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=La+Bonora+Largo+Appio+Claudio+344+Roma">Apri in Google Maps</a></p>
+<figure class="photo " style="margin-top:28px;aspect-ratio:4/5"><img src="img/lab-neon-s.jpg" srcset="img/lab-neon-s.jpg 800w, img/lab-neon.jpg 1600w" sizes="33vw" alt="Il neon LAB e il patio" loading="lazy" decoding="async" style="object-position:center"></figure>
+</aside>
+</div>
+</div></main><footer class="foot"><div class="wrap">
+<div class="foot-grid">
+<div><p class="d" style="font-size:44px">La Bonora</p><p class="s it" style="font-size:20px;margin-top:8px">Laboratorio di Cibi e Alcolici. Aperitivo, cena e dopocena a Cinecittà, Roma.</p></div>
+<div><h4>Che ti va stasera?</h4><ul><li><a href="conviviale.html">Un aperitivo · La Conviviale</a></li><li><a href="salotto.html">Una cena · Il Salotto</a></li><li><a href="giungla.html">Un drink · La Giungla</a></li></ul></div>
+<div><h4>Il locale</h4><ul><li><a href="menu.html">Menu</a></li><li><a href="locale.html">Il locale</a></li><li><a href="eventi.html">Eventi</a></li><li><a href="famiglia.html">La famiglia</a></li><li><a href="prenota.html">Prenota</a></li></ul></div>
+<div><h4>Contatti</h4><ul><li>Largo Appio Claudio 344/348, Roma</li><li>Ogni sera 18:00 – 02:00</li><li><a href="tel:+390688376508">06 8837 6508</a></li><li><a href="https://wa.me/393495069530">WhatsApp 349 506 9530</a></li><li><a href="mailto:info@labonora.it">info@labonora.it</a></li><li><a href="https://www.instagram.com/lab_bonora/">@lab_bonora</a></li></ul></div>
+</div>
+<div class="legal"><span>La Bonora S.r.l. · Largo Appio Claudio 344 · 00174 Roma · P.IVA e C.F. 14928281006 · REA RM-1555959</span><span><a href="privacy.html">Privacy e cookie</a> · La società ha ricevuto nel 2020 aiuti di stato pubblicati sul RNA, sezione trasparenza.</span></div>
+</div></footer>
+<nav class="actionbar" aria-label="Azioni rapide"><a class="fill" href="prenota.html">Prenota</a><a href="https://wa.me/393495069530">WhatsApp</a><a href="tel:+390688376508">Chiama</a></nav>
+<script src="assets/menu-data.js"></script><script src="assets/site.js"></script>
+</body>
+</html>
