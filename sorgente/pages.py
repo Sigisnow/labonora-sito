@@ -4,13 +4,13 @@ import json
 SOULS = [  # ordine della serata
     dict(key="conviviale", file="conviviale.html", name="La Conviviale", moment="L'aperitivo", want="Un aperitivo", short="aperitivo",
          line="Stasera mi va qualcosa di sfizioso, e un bicchiere in compagnia.",
-         motto="Nella giungla dovrai stare finché un 5 o un 8 non compare.", photo="conviviale-sala", theme="wine"),
+         motto="Nella giungla dovrai stare finché un 5 o un 8 non compare.", photo="aperitivo", theme="wine"),
     dict(key="salotto", file="salotto.html", name="Il Salotto", moment="La cena", want="Una cena", short="cena",
          line="Stasera mi va di sedermi a tavola e mangiare bene.",
-         motto="In amore e in cucina, ciò che è fatto troppo in fretta è fatto male.", photo="salotto-sala", theme="paper"),
+         motto="In amore e in cucina, ciò che è fatto troppo in fretta è fatto male.", photo="burger-q", theme="paper"),
     dict(key="giungla", file="giungla.html", name="La Giungla", moment="Il dopocena", want="Un drink", short="dopocena",
          line="Stasera mi va un bel drink, e di fare tardi.",
-         motto="Il bere vince sempre sul male.", photo="giungla-sala", theme="ink"),
+         motto="Il bere vince sempre sul male.", photo="negroni-fiamma", theme="ink"),
 ]
 OTHER = [("menu.html", "Menu"), ("locale.html", "Il locale"), ("eventi.html", "Eventi")]
 
@@ -56,7 +56,7 @@ page("index.html", "La Bonora · Cocktail bar e cucina a Cinecittà",
      "La Bonora, Laboratorio di Cibi e Alcolici a Cinecittà, Tuscolana: aperitivo, cena e cocktail bar fino alle 02. Tre anime in un solo locale, a Largo Appio Claudio.",
      f'''
 <section class="entrance" aria-label="L'ingresso"><div class="wrap">
-<figure class="photo hero-photo"><img src="img/ingresso-sera.jpg" srcset="img/ingresso-sera-s.jpg 800w, img/ingresso-sera.jpg 1600w" sizes="100vw" alt="L'insegna verde de La Bonora tra le luci" fetchpriority="high"></figure>
+
 <div class="entrance-text">
 <h1 class="d">Entra<br>alla Bonora</h1>
 <div class="side">
@@ -64,6 +64,7 @@ page("index.html", "La Bonora · Cocktail bar e cucina a Cinecittà",
 <div class="btns"><a class="btn fill" href="prenota.html">Prenota un tavolo</a><a class="btn" href="#anime">Che ti va stasera?</a></div>
 </div>
 </div>
+<div class="hero-row">{photo("fiamma", "Un cocktail flambato al bancone", sizes="(max-width:760px) 100vw, 40vw")}{photo("aperitivo", "Il tagliere dell'aperitivo con fritti e tacos", sizes="(max-width:760px) 50vw, 30vw")}{photo("tartare-firma", "Tartare di manzo con funghi e Grana", sizes="(max-width:760px) 50vw, 30vw")}</div>
 <div class="facts">
 <div><p class="kick">Stasera</p><p class="v" data-open-now>Ogni sera 18:00 – 02:00</p></div>
 <div><p class="kick">Dove</p><p class="v">Largo Appio Claudio 344/348</p></div>
@@ -94,14 +95,14 @@ page("index.html", "La Bonora · Cocktail bar e cucina a Cinecittà",
 
 <section class="sec" aria-label="Dal nostro Instagram"><div class="wrap">
 <div class="sec-head"><h2 class="d" style="font-size:clamp(40px,5vw,60px)">@lab_bonora</h2><a class="btn" href="https://www.instagram.com/lab_bonora/">Seguici su Instagram</a></div>
-<div class="strip">{photo("spritz","Uno spritz al tavolo",sizes="25vw")}{photo("cornucopia","La Matriciana in cornucopia",sizes="25vw")}{photo("bartender","Il bartender prepara un cocktail",sizes="25vw")}{photo("tartare","Tartare di manzo, pere e nocciole",sizes="25vw")}</div>
+<div class="strip">{photo("cocktail-chili","Un cocktail con fili di peperoncino",sizes="25vw")}{photo("burger-grande","Un burger con patate",sizes="25vw")}{photo("scimmia","La scimmia lampada appesa alla corda",sizes="25vw")}{photo("basilico","Un cocktail al basilico",sizes="25vw")}</div>
 </div></section>
 
 <section class="band ink" style="margin-top:72px" aria-labelledby="qr-h"><div class="wrap band-grid">
 <div><p class="kick">Al tavolo</p><h2 class="d" id="qr-h" style="margin:8px 0 12px">Il menu è anche qui</h2><p class="s" style="font-size:22px;line-height:1.3">Sul tavolo trovi la carta e un QR: inquadralo per la carta del dopocena, sempre aggiornata.</p></div>
 <div class="qr-row"><div class="qr" aria-hidden="true">QR</div><div class="links-col"><a href="menu.html#p-dopocena">Carta del dopocena →</a><a href="menu.html#p-cucina">Menu di cucina →</a><a href="https://www.instagram.com/lab_bonora/">Seguici su Instagram →</a></div></div>
 </div></section>
-''', extra='\n<meta property="og:image" content="' + SITE + '/img/ingresso-sera.jpg">\n<script type="application/ld+json">' + json.dumps(SCHEMA, ensure_ascii=False) + "</script>")
+''', extra='\n<meta property="og:image" content="' + SITE + '/img/fiamma.jpg">\n<script type="application/ld+json">' + json.dumps(SCHEMA, ensure_ascii=False) + "</script>")
 
 # ---------------- LE TRE ANIME ----------------
 def others_for(key):
@@ -138,32 +139,32 @@ def soul_page(key, title, desc, intro, gallery, features, menu_title, menu_lead,
 soul_page("conviviale", "Aperitivo e apericena a Cinecittà · La Conviviale · La Bonora",
     "L'aperitivo de La Bonora a Cinecittà, Tuscolana: fritti, taglieri e pinse da condividere, un drink e la compagnia giusta. Ogni sera dalle 18.",
     "La Conviviale è l'anima dello stare insieme: quadri alle pareti, musica, tavoli da condividere e qualcosa da mangiare con le mani.",
-    [("conviviale-sala", "La sala con il neon e la parete verde", "center 40%"), ("pinsa", "Una pinsa appena sfornata"), ("tagliere", "Un tagliere di salumi e formaggi")],
+    [("sala-viola", "La sala viola, con amici ai tavoli", "center 55%"), ("aperitivo", "Il tagliere dell'aperitivo"), ("stick", "Stick di pollo croccanti con salsa")],
     [("Da prendere con le mani", "Fritti", "Supplì, montanarine, sfere di bollito e di Camembert."),
      ("Un impasto, molte idee", "Pinse", "Dalla Margherita alla mortadella, burrata e pistacchio."),
      ("Da condividere", "Taglieri", "Salumi e formaggi scelti, per due o per tutto il tavolo.")],
     "Da condividere", "Fritti, antipasti e pinse, da accompagnare con un drink.",
-    extra_section='<div class="strip" style="margin-top:16px">' + photo("spritz", "Uno spritz", sizes="25vw") + photo("burger-amici", "Burger, patatine e drink al tavolo", sizes="25vw") + photo("conviviale-parete", "La parete con i quadri pop", sizes="25vw") + photo("tagliere", "Tagliere al tavolo", sizes="25vw", pos="center 30%") + "</div>")
+    extra_section='<div class="strip" style="margin-top:16px">' + photo("drink-popcorn", "Drink con pop corn e formaggi", sizes="25vw") + photo("pinsa", "Una pinsa appena sfornata", sizes="25vw") + photo("conviviale-sala", "Il neon e la parete verde", sizes="25vw") + photo("stick-salsa", "Uno stick intinto nella salsa", sizes="25vw") + "</div>")
 
 soul_page("salotto", "Cena a Cinecittà, cucina romana e burger · Il Salotto · La Bonora",
     "La cena de La Bonora a Cinecittà: primi della tradizione romana, Matriciana in cornucopia, tartare, burger fatti in casa e dolci. Prenota il tuo tavolo.",
-    "Il Salotto è l'anima della casa: la cucina di famiglia, la tradizione romana e i nostri burger, da gustare con calma.",
-    [("salotto-sala", "La sala calda, con la lampada e le bottiglie", "center 55%"), ("cornucopia", "La Matriciana in cornucopia"), ("tartare", "Tartare di manzo, pere e nocciole")],
+    "Il Salotto è l'anima della casa: la cucina di famiglia, la tradizione romana e i nostri burger, da gustare con calma, seduti a tavola.",
+    [("burger-grande", "Un burger con patate", "center 55%"), ("tartare-firma", "Tartare di manzo con funghi e Grana"), ("gnocchi", "Gnocchi al pesto con pomodorini")],
     [("Tradizione", "Primi romani", "Matriciana in cornucopia, fettuccine al ragù di cinghiale."),
      ("Fatti in casa", "Burger", "Otto burger con patatine fritte, anche vegetariani."),
      ("Per finire", "Dolci", "Tiramisù, Tarte Tatin, crema Maria Luisa.")],
     "La cena", "Tradizione romana e nuove idee. Tutti i burger con patatine fritte.",
-    extra_section='<div class="strip" style="margin-top:16px">' + photo("burger", "Un burger con patatine", sizes="25vw") + photo("ragu", "Un primo al ragù", sizes="25vw") + photo("tatin", "La Tarte Tatin", sizes="25vw") + photo("pistacchio", "Dolce al pistacchio", sizes="25vw") + "</div>")
+    extra_section='<div class="strip" style="margin-top:16px">' + photo("cornucopia", "La Matriciana in cornucopia", sizes="25vw") + photo("tagliata", "Una tagliata", sizes="25vw") + photo("cheesecake", "Cheesecake", sizes="25vw") + photo("tortino", "Tortino al cioccolato", sizes="25vw") + "</div>")
 
 soul_page("giungla", "Cocktail bar a Cinecittà aperto fino alle 02 · La Giungla · La Bonora",
     "Il dopocena de La Bonora a Cinecittà: cocktail della casa con infusi fatti da noi, drink affumicati e oltre 600 distillati. Aperti fino alle 02.",
     "La Giungla è l'anima del bancone: piante, luci basse, il divano Chesterfield e una bottigliera di oltre 600 distillati.",
-    [("giungla-sala", "La sala verde con le piante e i tavoli", "center 50%"), ("bartender", "Il bartender versa un cocktail"), ("divano", "Il divano Chesterfield sotto la parete verde")],
+    [("giungla-sala", "La sala verde con le piante e i tavoli", "center 50%"), ("negroni-fiamma", "Un Negroni con la scorza flambata"), ("basilico-orologio", "Un cocktail al basilico accanto alla sveglia")],
     [("Fatti da noi", "Liquori e infusi", "Liquore al cetriolo, vodka alle scorze di limone, tequila al basilico, gin al pepe rosa."),
      ("Sotto la campana", "Affumicatura", "Su qualunque cocktail, con la spezia che preferisci."),
      ("Food pairing", "Cocktail e piatto", "Scegli il piatto: il bartender ti prepara il drink che lo esalta.")],
     "Carta del dopocena", "I veri intenditori non bevono drink: degustano segreti.",
-    extra_section='<div class="strip" style="margin-top:16px">' + photo("neon-wilde", "Il neon: I can resist anything except temptation", sizes="25vw") + photo("bartender-drink", "Il bartender con i drink pronti", sizes="25vw") + photo("bottiglie", "Bottiglie sul bancone", sizes="25vw") + photo("gorilla", "Il quadro del gorilla", sizes="25vw") + "</div>")
+    extra_section='<div class="strip" style="margin-top:16px">' + photo("fiamma", "Un cocktail flambato", sizes="25vw") + photo("tiki", "Un tiki drink blu", sizes="25vw") + photo("sour", "Due sour al bancone", sizes="25vw") + photo("bourbon", "Una bottiglia di bourbon", sizes="25vw") + "</div>")
 
 # ---------------- MENU ----------------
 page("menu.html", "Menu · La Bonora", "Il menu de La Bonora a Cinecittà: fritti, pinse, primi romani, burger, dolci e la carta del dopocena con i cocktail della casa.", '''
@@ -185,7 +186,7 @@ page("locale.html", "Il locale · La Bonora", "Il locale de La Bonora a Largo Ap
 <div class="wrap">''' + big_title("Il locale", "Legno, piante e rampicanti, luci soffuse e colorate. Tre sale, un bancone e un patio sulla piazza.") + f'''
 <div class="gallery" style="padding-top:24px">{photo("bancone-2", "Il bancone verde con la scritta La Bonora", pos="center 60%", sizes="66vw")}{photo("lab-neon", "Il neon LAB sulla vetrata verso il patio", sizes="33vw")}{photo("divano", "Il divano Chesterfield", sizes="33vw")}</div>
 <section class="sec"><div class="split">
-{photo("facciata", "La facciata con le luci", pos="center 40%")}
+{photo("giungla-blu", "La sala con le gabbie e le luci blu")}
 <div>
 <p class="kick wine">Lo spazio</p>
 <h2 class="d" style="font-size:clamp(44px,6vw,72px);margin:8px 0 24px">Una giungla a tua disposizione</h2>
@@ -196,6 +197,7 @@ page("locale.html", "Il locale · La Bonora", "Il locale de La Bonora a Largo Ap
 </div>
 </div>
 </div></section>
+<div class="strip" style="margin-top:48px">{photo("lab-murale","La scritta LAB sul muro di mattoni",sizes="25vw")}{photo("gufo","Il gufo con la sveglia",sizes="25vw")}{photo("tucano","Il tucano sull'altalena",sizes="25vw")}{photo("scimmia","La scimmia lampada",sizes="25vw")}</div>
 <div class="feature-list">
 <div><p class="kick wine">Per le tue feste</p><h3>Uso esclusivo</h3><p>Una delle tre sale tutta per voi, o l'intero locale. Organizziamo anche catering in altre location.</p></div>
 <div><p class="kick wine">Fuori</p><h3>Il patio</h3><p>Sulla piazza, con i funghi di calore nei mesi freddi.</p></div>
@@ -218,7 +220,7 @@ page("eventi.html", "Eventi · La Bonora", "Le serate de La Bonora a Cinecittà:
 <div><p class="kick wine">Al bancone</p><h3>Serate drink</h3><p class="s" style="font-size:19px">Degustazioni di gin e whisky, Exotic e Tiki drink, Beer night, cocktail di San Patrizio.</p></div>
 <div><p class="kick wine">In maschera</p><h3>Feste a tema</h3><p class="s" style="font-size:19px">Natale, Halloween, Carnevale, Día de los Muertos, Pin Up Party, Cosplay, karaoke.</p></div>
 </div>
-<div class="strip" style="margin-top:24px">{photo("natale","Le decorazioni di Natale",sizes="25vw")}{photo("bartender-drink","Il bartender al bancone",sizes="25vw")}{photo("neon-wilde","Il neon di Oscar Wilde",sizes="25vw")}{photo("spritz","Drink al tavolo",sizes="25vw")}</div>
+<div class="strip" style="margin-top:24px">{photo("natale","Le decorazioni di Natale",sizes="25vw")}{photo("bartender-drink","Il bartender al bancone",sizes="25vw")}{photo("neon-wilde","Il neon di Oscar Wilde",sizes="25vw")}{photo("versata","Un cocktail versato al bancone",sizes="25vw")}</div>
 </section>
 <section class="band wine" style="margin-top:64px" aria-labelledby="priv-h"><div class="band-grid" style="padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))">
 <div><p class="kick">Feste private</p><h2 class="d" id="priv-h" style="margin:8px 0 12px">Una sala tutta per voi</h2><p class="s" style="font-size:21px;line-height:1.35">Compleanni, lauree, aperitivi aziendali: una delle tre sale in esclusiva, o tutto il locale. Organizziamo anche catering in altre location.</p></div>
@@ -298,7 +300,7 @@ page("famiglia.html", "La famiglia · La Bonora", "La Bonora e N'Antro, calici e
 <div class="place">''' + photo("ingresso-sera", "L'insegna de La Bonora", sizes="50vw") + '''<p class="kick wine">Largo Appio Claudio 344/348</p><h3 class="d">La Bonora</h3><p class="s" style="font-size:20px">Il Laboratorio di Cibi e Alcolici: aperitivo, cena e dopocena, tre anime in un solo locale.</p><a class="btn" href="index.html" style="align-self:flex-start">Sei qui</a></div>
 <div class="place">''' + photo("nantro", "L'insegna di N'Antro, calici e taglieri", sizes="50vw", pos="center 30%") + '''<p class="kick wine">Largo Appio Claudio, accanto a La Bonora</p><h3 class="d">N'Antro</h3><p class="s" style="font-size:20px">Calici e taglieri. [Descrizione da scrivere: cosa si beve, cosa si mangia, che atmosfera ha.]</p><a class="btn" href="#" style="align-self:flex-start">Instagram di N'Antro</a></div>
 </div></section>
-<section class="sec"><div class="strip">''' + photo("famiglia-tavola", "A tavola", sizes="25vw") + photo("cuoca", "In cucina", sizes="25vw") + photo("caffe", "Il caffè", sizes="25vw") + photo("salotto-sala", "La sala", sizes="25vw") + '''</div></section>
+<section class="sec"><div class="strip">''' + photo("famiglia-tavola", "A tavola", sizes="25vw") + photo("cuoca", "In cucina", sizes="25vw") + photo("caffe", "Il caffè", sizes="25vw") + photo("salotto-sala", "La sala di N'Antro", sizes="25vw") + '''</div></section>
 </div>''')
 
 # ---------------- PRIVACY ----------------

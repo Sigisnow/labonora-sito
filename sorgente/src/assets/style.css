@@ -312,3 +312,9 @@ legend{padding:0;margin-bottom:14px}
 .hero-photo{aspect-ratio:16/8}
 .hero-photo img{object-position:center 45%}
 @media (max-width:760px){.entrance .hero-photo{aspect-ratio:1/1}.hero-photo img{object-position:48% 45%}}
+.hero-row{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,3fr) minmax(0,3fr);gap:12px;padding-bottom:24px}
+.hero-row .photo{aspect-ratio:4/5}
+.hero-row .photo:first-child{aspect-ratio:auto}
+.entrance{padding-top:8px}
+.entrance-text{border-bottom:none;padding-block:32px 28px}
+@media (max-width:760px){.hero-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.hero-row .photo:first-child{grid-column:1/-1;aspect-ratio:1/1}}
